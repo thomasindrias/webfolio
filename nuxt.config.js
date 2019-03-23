@@ -29,7 +29,7 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: [],
+  css: ['~assets/scss/main.scss'],
 
   /*
   ** Plugins to load before mounting the App
@@ -46,8 +46,16 @@ module.exports = {
     '@nuxtjs/bulma',
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    '@nuxtjs/style-resources'
   ],
+
+  /*
+  ** Style resources
+  */
+  styleResources: {
+    scss: []
+  },
 
   /*
   ** Markdownit configuration

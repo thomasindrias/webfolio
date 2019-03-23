@@ -2,18 +2,21 @@
   <section class="section">
     <div class="container">
       <div class="columns">
-        <div class="column is-offset-2 is-8">
+        <div class="column is-offset-1 is-10">
           <h1 class="title is-2">
             {{ title }}
           </h1>
           <div />
           <hr>
-          <post
-            v-for="(post, index) in posts"
-            :key="index"
-            :post-title="post.fields.title"
-            :post-slug="post.fields.slug"
-          />
+          <div class="columns is-multiline">
+            <post
+              v-for="(post, index) in posts"
+              :key="index"
+              :post-title="post.fields.title"
+              :post-slug="post.fields.slug"
+              :post-url="post.fields.slugImage.fields.file.url"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -41,7 +44,9 @@ export default {
           order: 'sys.createdAt'
         })
         .then(entries => {
-          return { posts: entries.items }
+          return {
+            posts: entries.items
+          }
         })
         // eslint-disable-next-line no-console
         .catch(e => console.log(e))
