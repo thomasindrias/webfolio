@@ -90,14 +90,18 @@ module.exports = {
   },
   generate: {
     routes() {
-      return client.getEntries({ content_type: 'post' }).then(entries => {
-        return entries.items.map(entry => {
-          return {
-            route: entry.fields.slug,
-            payload: entry
-          }
+      return client
+        .getEntries({
+          content_type: 'post'
         })
-      })
+        .then(entries => {
+          return entries.items.map(entry => {
+            return {
+              route: entry.fields.slug,
+              payload: entry
+            }
+          })
+        })
     }
   }
 }
