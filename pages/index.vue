@@ -4,18 +4,16 @@
       <div class="columns">
         <div class="column is-offset-2 is-8">
           <h1 class="title is-2">
-            Latest Posts
+            {{ title }}
           </h1>
+          <div />
           <hr>
-          <h2
+          <post
             v-for="(post, index) in posts"
             :key="index"
-            class="title is-4"
-          >
-            <nuxt-link :to="post.fields.slug">
-              {{ post.fields.title }}
-            </nuxt-link>
-          </h2>
+            :post-title="post.fields.title"
+            :post-slug="post.fields.slug"
+          />
         </div>
       </div>
     </div>
@@ -24,13 +22,23 @@
 
 <script>
 import client from '~/plugins/contentful'
+import post from '~/components/Post.vue'
 
 export default {
+  components: {
+    post
+  },
+  data: function() {
+    return {
+      title: 'Latest Posts'
+    }
+  },
   asyncData() {
     return (
       client
         .getEntries({
-          content_type: 'post'
+          content_type: 'post',
+          order: 'sys.createdAt'
         })
         .then(entries => {
           return { posts: entries.items }
@@ -38,9 +46,6 @@ export default {
         // eslint-disable-next-line no-console
         .catch(e => console.log(e))
     )
-  },
-  head: {
-    title: 'Latest Posts'
   }
 }
 </script>

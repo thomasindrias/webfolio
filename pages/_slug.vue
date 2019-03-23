@@ -12,7 +12,8 @@
             {{ post.fields.title }}
           </h1>
           <hr>
-          <div v-html="$md.render(post.fields.content)" class="content" />
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <div class="content" v-html="$md.render(post.fields.content)" />
         </div>
       </div>
     </div>
