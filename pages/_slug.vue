@@ -1,23 +1,24 @@
 <template>
-  <section class="section">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-offset-2 is-8">
-          <p class="subtitle is-6">
-            <nuxt-link to="/">
-              Home
-            </nuxt-link>
-          </p>
-          <h1 class="title is-2">
+  <div>
+    <section
+      :style="{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url(' + post.fields.slugImage.fields.file.url + ')' }" 
+      class="hero is-info is-medium bg-image"
+    >
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title has-text-centered">
             {{ post.fields.title }}
           </h1>
-          <hr>
-          <!-- eslint-disable-next-line vue/no-v-html -->
-          <div class="content" v-html="$md.render(post.fields.content)" />
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+    
+    <section class="section">
+      <hr>
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <div class="content" v-html="$md.render(post.fields.content)" />
+    </section>
+  </div>
 </template>
 
 <script>
@@ -47,3 +48,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.bg-image {
+  background-position: center;
+  background-size: cover;
+}
+</style>

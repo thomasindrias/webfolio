@@ -1,21 +1,6 @@
 <template>
-  <!--
-  <div
-    class="post column is-vertical"
-  >
-    <article
-      :style="{ backgroundImage: 'url(' + postUrl + ')' }"
-      class="tile is-child notification is-primary"
-    >
-      <nuxt-link :to="postSlug">
-        {{ postTitle }}
-      </nuxt-link>
-    </article>
-  </div>
-  -->
-
   <div class="column is-6">
-    <div class="card large">
+    <div class="card large mosaic">
       <nuxt-link :to="postSlug">
         <div class="card-image">
           <figure class="image">
@@ -33,11 +18,10 @@
             </nuxt-link>
           </div>
         </div>
-        <div class="content">
-          {{ postSlug }}
-          <div class="background-icon">
-            <span class="icon-twitter" />
-          </div>
+        <div class="content">      
+          <p class="has-text-grey	 has-text-right">
+            {{ postDate | formatDate }}
+          </p>
         </div>
       </div>
     </div>
@@ -45,7 +29,14 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
+  filters: {
+    formatDate: function(value) {
+      return moment(String(value)).format('lll')
+    }
+  },
   props: {
     postTitle: {
       type: String,
@@ -58,10 +49,18 @@ export default {
     postSlug: {
       type: String,
       required: true
+    },
+    postContent: {
+      type: String,
+      required: true
+    },
+    postDate: {
+      type: String,
+      required: true
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 </style>

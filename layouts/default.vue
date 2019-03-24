@@ -1,19 +1,5 @@
 <template>
   <div>
-    <section class="hero is-primary has-text-centered">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">
-            <nuxt-link to="/">
-              Thomas Indrias
-            </nuxt-link>
-          </h1>
-          <h2 class="subtitle">
-            Welcome to my portfolio!
-          </h2>
-        </div>
-      </div>
-    </section>
     <nuxt />
   </div>
 </template>
