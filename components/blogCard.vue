@@ -14,7 +14,9 @@
         </h3>
 
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <p class="post-description" v-html="$md.render(this.$options.filters.truncate(desc, 180))" />
+        <p class="post-description">
+          <vue-markdown>{{ desc | truncate(180) }} </vue-markdown>
+        </p>
         <p class="post-author">
           By {{ author }}
         </p>
@@ -24,7 +26,12 @@
 </template>
 
 <script>
+import VueMarkdown from 'vue-markdown'
+
 export default {
+  components: {
+    'vue-markdown': VueMarkdown
+  },
   filters: {
     truncate: function(text, stop, clamp) {
       let start = 0

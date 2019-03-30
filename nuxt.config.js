@@ -46,7 +46,6 @@ module.exports = {
     '@nuxtjs/bulma',
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
-    '@nuxtjs/markdownit',
     '@nuxtjs/style-resources'
   ],
 
@@ -60,9 +59,7 @@ module.exports = {
   /*
   ** Markdownit configuration
   */
-  markdownit: {
-    injected: true
-  },
+
   /*
   ** Axios module configuration
   */

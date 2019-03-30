@@ -1,8 +1,19 @@
 <template>
   <div>
     <nuxt />
+    <footer-prop />
   </div>
 </template>
+
+<script>
+import Footer from '~/components/Footer.vue'
+export default {
+  name: 'Default',
+  components: {
+    'footer-prop': Footer
+  }
+}
+</script>
 
 <style lang="scss">
 html {
