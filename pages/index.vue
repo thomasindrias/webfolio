@@ -24,6 +24,7 @@
             <div />
             <hr>
             <div class="columns is-multiline">
+              <!--
               <post
                 v-for="(post, index) in posts"
                 :key="index"
@@ -32,6 +33,17 @@
                 :post-content="post.fields.content"
                 :post-url="post.fields.slugImage.fields.file.url"
                 :post-date="post.sys.createdAt"
+              />
+              -->
+              <blog-card
+                v-for="(post, index) in posts"
+                :key="index"
+                :post-link="post.fields.slug"
+                :name="post.fields.title"
+                :image="post.fields.slugImage.fields.file.url"
+                :desc="post.fields.content"
+                :author="post.fields.author.fields.name"
+                :category="post.fields.genre"
               />
             </div>
           </div>
@@ -43,11 +55,13 @@
 
 <script>
 import client from '~/plugins/contentful'
-import post from '~/components/Post.vue'
+// import post from '~/components/Post.vue'
+import blogCard from '~/components/blogCard.vue'
 
 export default {
   components: {
-    post
+    // post,
+    'blog-card': blogCard
   },
   data: function() {
     return {
@@ -63,7 +77,7 @@ export default {
         })
         .then(entries => {
           // eslint-disable-next-line no-console
-          // console.table(entries.items)
+          console.table(entries.items)
           return {
             posts: entries.items
           }
