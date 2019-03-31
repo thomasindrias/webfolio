@@ -1,6 +1,7 @@
 <template>
   <div class="site animated delay-0.6s fadeIn">
     <navbar />
+    <hr>
     <nuxt class="site-content" />
     <footer-prop style="footer-spacing" />
   </div>

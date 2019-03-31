@@ -2,12 +2,11 @@
   <div class="custom-navbar columns is-vcentered">
     <div class="column">
       <div
+        
         class="hamburger"
         @click="isHidden = !isHidden"
       >
-        <div class="bottom-bun" />
-        <div class="meat" />
-        <div class="top-bun" />
+        <div class="hamburger-menu" :class="{ 'animate': !isHidden }" />	  
       </div>
     </div>
     <div
@@ -23,7 +22,7 @@
     </div>
     <div class="column has-text-weight-semibold has-text-right">
       <nuxt-link to="/">
-        <span class="logo-name text-font-sree no-select">TI</span>
+        <span class="logo-name text-font-sree no-select nav-item">TI</span>
       </nuxt-link>
     </div>
   </div>
@@ -46,6 +45,9 @@ export default {
 
 $red: #e04f62;
 $black: #4a4a4a;
+$bar-width: 60px;
+$bar-height: 5px;
+$bar-spacing: 15px;
 
 .hidden {
   visibility: hidden;
@@ -86,11 +88,6 @@ $black: #4a4a4a;
   color: $red;
 }
 
-.logo {
-  height: 100px;
-  width: 100px;
-}
-
 .text-font-sree {
   font-family: 'Sree Krushnadevaraya', serif;
 }
@@ -103,7 +100,7 @@ $black: #4a4a4a;
 .custom-navbar {
   display: flex;
   margin: 0;
-  padding: 50px 30px 50px 30px;
+  padding: 50px 30px;
   width: 100%;
   height: 30px;
   z-index: 9999;
@@ -111,75 +108,60 @@ $black: #4a4a4a;
 
 .hamburger {
   display: flex;
-  align-self: center;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 60px;
-  height: 40px;
+  width: $bar-width;
+  height: $bar-height + $bar-spacing * 2;
   cursor: pointer;
 }
-.hamburger div {
-  align-self: flex-start;
-  height: 4px;
-  width: 100%;
-  background: #4a4a4a;
-}
-.hamburger .meat {
-  width: 75%;
-  transition: all 200ms ease-in-out;
-}
-.hamburger .bottom-bun {
-  width: 50%;
-  transition: all 400ms ease-in-out;
-}
-.hamburger:hover div {
-  width: 100%;
-}
-.hamburger:hover .top-bun {
-  -webkit-animation: burger-hover 1s ease-in-out 200ms;
-  animation: burger-hover 1s ease-in-out 200ms;
-}
-.hamburger:hover .meat {
-  -webkit-animation: burger-hover 1s ease-in-out forwards 400ms;
-  animation: burger-hover 1s ease-in-out forwards 400ms;
-}
-.hamburger:hover .bottom-bun {
-  -webkit-animation: burger-hover 1s ease-in-out forwards 600ms;
-  animation: burger-hover 1s ease-in-out forwards 600ms;
+
+.hamburger-menu,
+.hamburger-menu:after,
+.hamburger-menu:before {
+  width: $bar-width;
+  height: $bar-height;
 }
 
-@-webkit-keyframes burger-hover {
-  0% {
-    width: 100%;
-  }
-  50% {
-    width: 50%;
-    background: $red;
-  }
-  100% {
-    width: 100%;
+.hamburger-menu {
+  position: relative;
+  transform: translateY($bar-spacing);
+  background: $black;
+  transition: all 0ms 300ms;
+
+  &.animate {
+    background: rgba(255, 255, 255, 0);
   }
 }
 
-@keyframes burger-hover {
-  0% {
-    width: 100%;
-  }
-  50% {
-    width: 50%;
-    background: $red;
-  }
-  100% {
-    width: 100%;
-  }
+.hamburger-menu:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: $bar-spacing;
+  background: $black;
+  transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-@keyframes burger-active {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(45deg);
-  }
+.hamburger-menu:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: $bar-spacing;
+  background: $black;
+  transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hamburger-menu.animate:after {
+  top: 0;
+  transform: rotate(45deg);
+  transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hamburger-menu.animate:before {
+  bottom: 0;
+  transform: rotate(-45deg);
+  transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 </style>

@@ -26,7 +26,8 @@
     "nuxt": "^2.4.0",
     "popper.js": "^1.14.7",
     "vue-lazyload": "^1.2.6",
-    "vue-markdown": "^2.2.4"
+    "vue-markdown": "^2.2.4",
+    "vue-scroll-reveal": "^1.0.11"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",

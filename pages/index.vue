@@ -1,9 +1,8 @@
 <template>
   <div>
-    <hr>
     <section class="section container-box">
       <div class="container columns"> 
-        <quote />
+        <quote v-scroll-reveal.reset />
       </div>
     </section>
     <section class="section">
@@ -13,6 +12,7 @@
             <blog-card
               v-for="(post, index) in posts"
               :key="index"
+              v-scroll-reveal.reset
               :post-link="post.fields.slug"
               :name="post.fields.title"
               :image="post.fields.slugImage.fields.file.url"
@@ -20,6 +20,9 @@
               :author="post.fields.author.fields.name"
               :category="post.fields.genre"
             />
+            <div class="end column has-text-centered">
+              <span class="title">No more posts ✍️</span>
+            </div>
           </div>
         </div>
       </div>
@@ -59,4 +62,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$black: #4a4a4a;
+
+.end {
+  margin-top: 4rem;
+}
 </style>
