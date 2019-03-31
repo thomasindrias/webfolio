@@ -10,14 +10,14 @@
       </div>
     </div>
     <div
-      class="column has-text-centered has-text-weight-semibold text-font-sree is-size-4 no-select"
+      class="nav-items column has-text-centered has-text-weight-semibold text-font-sree is-size-4 no-select"
       :class="{'animated fadeInDown': !isHidden, 'hidden animated fadeOutUp ': isHidden}"
     >
-      <nuxt-link style="margin: 0 30px;" to="/">
-        <span class="nav-item">HOME</span>
+      <nuxt-link style="margin: 0 30px;" class="nav-item" exact to="/">
+        <span class="">HOME</span>
       </nuxt-link>
-      <nuxt-link style="margin: 0 30px;" to="/about">
-        <span class="nav-item">ABOUT</span>
+      <nuxt-link style="margin: 0 30px;" class="nav-item" exact to="/about">
+        <span class="">ABOUT</span>
       </nuxt-link>
     </div>
     <div class="column has-text-weight-semibold has-text-right">
@@ -44,10 +44,15 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Sree+Krushnadevaraya');
 
 $red: #e04f62;
+$yellow: #efecca;
 $black: #4a4a4a;
 $bar-width: 60px;
 $bar-height: 5px;
 $bar-spacing: 15px;
+
+.nav-items a.nuxt-link-active {
+  border-bottom: 4px solid $yellow;
+}
 
 .hidden {
   visibility: hidden;
