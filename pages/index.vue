@@ -22,7 +22,11 @@
               :author="post.fields.author.fields.name"
               :category="post.fields.genre"
             />
-            <div class="end column has-text-centered">
+            <div
+              v-scroll-reveal.reset
+              class="end column has-text-centered"
+              :class="{'not-hidden animated fadeIn delay-1s': lazyLoad}"
+            >
               <span class="title">No more posts ✍️</span>
             </div>
           </div>
@@ -75,6 +79,10 @@ $black: #4a4a4a;
 
 .hidden {
   visibility: hidden;
+}
+
+.not-hidden {
+  visibility: visible;
 }
 
 .quote {
