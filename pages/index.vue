@@ -1,15 +1,16 @@
 <template>
   <div>
+    <hr>
     <section class="section container-box">
-      <div class="container columns is-fluid"> 
+      <div class="container columns"> 
         <quote />
       </div>
     </section>
     <section class="section">
       <div class="container">
+        <hr>
         <div class="columns">
-          <hr>
-          <div class="columns is-multiline animated delay-1s fadeIn">
+          <div class="columns is-multiline animated delay-0.5s fadeIn">
             <blog-card
               v-for="(post, index) in posts"
               :key="index"

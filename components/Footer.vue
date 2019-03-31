@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="content has-text-centered has-text-weight-semibold">
       <p>
-        © 2019 Thomas Indrias. Powered by Nuxt and Contentful.
+        © 2019 Thomas Indrias 💻 Powered by Nuxt and Contentful.
       </p>
     </div>
   </footer>

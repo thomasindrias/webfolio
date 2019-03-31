@@ -28,6 +28,7 @@ export default {
       function(quote) {
         // eslint-disable-next-line no-console
         // console.log(quote.quoteText)
+        if (quote.quoteAuthor === '') quote.quoteAuthor = 'Mysterious Person'
         $('#text').text(quote.quoteText)
         $('#author').text(quote.quoteAuthor)
       }
@@ -41,5 +42,10 @@ export default {
 
 .banner {
   font-family: 'Sree Krushnadevaraya', serif;
+}
+
+.content-box {
+  overflow: hidden;
+  transition: height 0.66s ease-out;
 }
 </style>
