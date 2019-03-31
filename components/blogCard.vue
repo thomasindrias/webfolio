@@ -14,8 +14,10 @@
         </h3>
 
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <p class="post-description">
-          <vue-markdown>{{ desc | truncate(180) }} </vue-markdown>
+        <p class="post-description has-text-grey">
+          <no-ssr>
+            <vue-markdown>{{ desc | truncate(120) }} </vue-markdown>
+          </no-ssr>
         </p>
         <p class="post-author">
           By {{ author }}

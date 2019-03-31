@@ -1,16 +1,20 @@
 <template>
-  <div>
-    <nuxt />
-    <footer-prop />
+  <div class="animated delay-0.2s fadeIn">
+    <navbar />
+    <nuxt class="nuxt-content" />
+    <footer-prop style="footer-spacing" />
   </div>
 </template>
 
 <script>
 import Footer from '~/components/Footer.vue'
+import Navbar from '~/components/Navbar.vue'
+
 export default {
   name: 'Default',
   components: {
-    'footer-prop': Footer
+    'footer-prop': Footer,
+    navbar: Navbar
   }
 }
 </script>

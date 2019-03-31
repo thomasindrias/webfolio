@@ -1,8 +1,8 @@
 <template>
   <footer class="footer">
-    <div class="content has-text-centered">
+    <div class="content has-text-centered has-text-weight-semibold">
       <p>
-        <strong>Diary Stack</strong> by <a href="https://thomasindrias.com">Thomas Indrias</a> © 2019
+        © 2019 Thomas Indrias. Powered by Nuxt and Contentful.
       </p>
     </div>
   </footer>
@@ -15,4 +15,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.footer {
+  margin-top: 150px;
+}
 </style>

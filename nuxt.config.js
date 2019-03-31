@@ -1,4 +1,5 @@
 require('dotenv').config()
+
 // eslint-disable-next-line nuxt/no-cjs-in-config
 const pkg = require('./package')
 // eslint-disable-next-line nuxt/no-cjs-in-config
@@ -29,12 +30,18 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: ['~assets/scss/main.scss'],
+  css: ['~assets/scss/main.scss', 'animate.css/animate.css'],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['~/plugins/contentful'],
+  plugins: [
+    '~/plugins/contentful',
+    {
+      src: '~/plugins/vue-lazyload',
+      ssr: false
+    }
+  ],
 
   /*
   ** Nuxt.js modules

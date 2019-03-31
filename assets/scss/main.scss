@@ -1,3 +1,63 @@
 body, html, #__nuxt, #__layout  {
   height: 100vh;
 }
+
+$blog-color-key: 'base' !default;
+
+$blog-colors: (
+'primary': (
+  'base': #023C40,
+  'light': #d9534f,
+  'dark': #c9302c
+),
+'accent': (
+  'base': #303633,
+  'light': #dd8f3d,
+  'dark': #c57623
+),
+'secondary': (
+  'base': #EFECCA,
+  'light': #7b1a2d,
+  'dark': #51111e
+),
+'foreground': (
+  'base': #161616,
+  'light': #333333,
+  'dark': #111111,
+  'darker': #000000
+),
+'background': (
+  'base': #FFFFFF,
+  'light': #ffffff,
+  'dark': #dddddd
+));
+
+$blog-opacity: ('light': 0.8, // opacity used with lighter colors
+'dark': 0.4, // opacity used with darker colors
+// ... etc.
+);
+
+@function blog-color($name: 'primary',
+$variant: $blog-color-key,
+$opacity: 1) {
+  $color: null;
+
+  // Get the color spectrum
+  $color-spectrum: map-get($blog-colors, $name);
+
+  // Get the color variant
+  @if $color-spectrum {
+    $color: map-get($color-spectrum, $variant);
+  }
+
+  // Get the alpha setting
+  $alpha: if(type-of($opacity)=='number', $opacity, map-get($blog-opacity, $opacity));
+
+  // Set the alpha of the color
+  @if $alpha {
+    $color: rgba($color, $alpha);
+  }
+
+  @return $color;
+}
+
