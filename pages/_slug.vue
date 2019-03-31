@@ -1,6 +1,9 @@
 <template>
-  <div class="full-page">
-    <section class="section is-medium container-box">
+  <div
+    class="full-page"
+    :class="{'animated fadeIn': lazyLoad}"
+  >
+    <section v-scroll-reveal.reset class="section is-medium container-box">
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="container columns is-fluid"> 
         <div class="content column is-three-fifths is-offset-one-fifth content-box">
@@ -27,11 +30,12 @@
     </section>
     
     <section
+      v-scroll-reveal.reset
       :style="{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url(' + post.fields.slugImage.fields.file.url + ')' }" 
       class="hero is-info is-fullheight bg-image"
     />
     
-    <section class="section container-box">
+    <section v-scroll-reveal.reset class="section container-box">
       <hr>
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="container columns is-fluid"> 
@@ -57,6 +61,11 @@ export default {
   components: {
     'vue-markdown': VueMarkdown
   },
+  data: function() {
+    return {
+      lazyLoad: false
+    }
+  },
   asyncData({ params, error, payload }) {
     if (payload) return { post: payload }
 
@@ -67,7 +76,10 @@ export default {
           'fields.slug': params.slug
         })
         .then(entries => {
-          return { post: entries.items[0] }
+          return {
+            post: entries.items[0],
+            lazyLoad: true
+          }
         })
         // eslint-disable-next-line no-console
         .catch(e => console.log(e))
@@ -88,6 +100,10 @@ $border-radius-size: 14px;
 *:before,
 *:after {
   box-sizing: border-box;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 .avatar {

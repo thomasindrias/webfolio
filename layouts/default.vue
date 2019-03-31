@@ -1,6 +1,6 @@
 <template>
-  <div class="site animated delay-0.6s fadeIn">
-    <navbar />
+  <div class="site">
+    <navbar v-scroll-reveal.reset />
     <hr>
     <nuxt class="site-content" />
     <footer-prop style="footer-spacing" />

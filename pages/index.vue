@@ -1,14 +1,16 @@
 <template>
-  <div>
+  <div :class="{'hidden animated fadeIn': lazyLoad}">
     <section class="section container-box">
-      <div class="container columns"> 
-        <quote v-scroll-reveal.reset />
+      <div class="container quote columns"> 
+        <quote v-scroll-reveal.reset class="animated delay-1s fadeIn" />
       </div>
     </section>
     <section class="section">
       <div class="container">
         <div class="columns">
-          <div class="columns is-multiline animated delay-0.5s fadeIn">
+          <div
+            class="columns is-multiline"
+          >
             <blog-card
               v-for="(post, index) in posts"
               :key="index"
@@ -40,6 +42,11 @@ export default {
     quote: Quote,
     'blog-card': blogCard
   },
+  data: function() {
+    return {
+      lazyLoad: false
+    }
+  },
   asyncData() {
     return (
       client
@@ -50,8 +57,10 @@ export default {
         .then(entries => {
           // eslint-disable-next-line no-console
           // console.log(entries.items)
+
           return {
-            posts: entries.items
+            posts: entries.items,
+            lazyLoad: true
           }
         })
         // eslint-disable-next-line no-console
@@ -63,6 +72,14 @@ export default {
 
 <style lang="scss" scoped>
 $black: #4a4a4a;
+
+.hidden {
+  visibility: hidden;
+}
+
+.quote {
+  min-height: 40vh;
+}
 
 .end {
   margin-top: 4rem;

@@ -2,7 +2,7 @@
 <template id="blog-card">
   <nuxt-link :to="postLink">
     <article class="blog-card card-link">
-      <img class="post-image" :src="image">
+      <img v-lazy="image" class="post-image animated fadeIn">
 
       <div class="article-details">
         <h4 class="post-category">
