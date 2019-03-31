@@ -8,7 +8,6 @@
     </section>
     <section class="section">
       <div class="container">
-        <hr>
         <div class="columns">
           <div class="columns is-multiline animated delay-0.5s fadeIn">
             <blog-card
@@ -38,21 +37,16 @@ export default {
     quote: Quote,
     'blog-card': blogCard
   },
-  data: function() {
-    return {
-      quote: 'Sorry, no quote today :('
-    }
-  },
   asyncData() {
     return (
       client
         .getEntries({
           content_type: 'post',
-          order: 'sys.createdAt'
+          order: '-sys.createdAt'
         })
         .then(entries => {
           // eslint-disable-next-line no-console
-          // console.table(entries.items)
+          // console.log(entries.items)
           return {
             posts: entries.items
           }
