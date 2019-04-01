@@ -1,11 +1,14 @@
 <template>
-  <div :class="{'hidden animated fadeIn': lazyLoad}">
+  <div :class="{'animated fadeIn': lazyLoad}">
     <section class="section container-box">
       <div class="container quote columns"> 
         <quote v-scroll-reveal.reset class="animated delay-1s fadeIn" />
       </div>
     </section>
-    <section class="section">
+    <section
+      class="section"
+      :class="{'hidden animated fadeIn': !lazyLoad}"
+    >
       <div class="container">
         <div class="columns">
           <div
@@ -63,13 +66,15 @@ export default {
           // console.log(entries.items)
 
           return {
-            posts: entries.items,
-            lazyLoad: true
+            posts: entries.items
           }
         })
         // eslint-disable-next-line no-console
         .catch(e => console.log(e))
     )
+  },
+  mounted: function() {
+    this.lazyLoad = true
   }
 }
 </script>
