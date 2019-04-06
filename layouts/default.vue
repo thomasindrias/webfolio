@@ -1,7 +1,6 @@
 <template>
   <div class="site">
     <navbar v-scroll-reveal.reset />
-    <hr>
     <nuxt class="site-content" />
     <footer-prop style="footer-spacing" />
   </div>

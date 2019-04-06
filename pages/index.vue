@@ -41,7 +41,7 @@
 
 <script>
 import client from '~/plugins/contentful'
-import Quote from '~/components/Quote.vue'
+import Quote from '~/components/extra/Quote.vue'
 import blogCard from '~/components/blogCard.vue'
 
 export default {

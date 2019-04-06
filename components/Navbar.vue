@@ -10,14 +10,14 @@
       </div>
     </div>
     <div
-      class="nav-items column has-text-centered has-text-weight-semibold text-font-sree is-size-4 no-select"
+      class="nav-items column has-text-centered text-font-icon is-size-4 no-select"
       :class="{'animated fadeInDown': !isHidden, 'hidden animated fadeOutUp ': isHidden}"
     >
       <nuxt-link style="margin: 0 30px;" class="nav-item" exact to="/">
-        <span class="">HOME</span>
+        <span class="">Home</span>
       </nuxt-link>
       <nuxt-link style="margin: 0 30px;" class="nav-item" exact to="/about">
-        <span class="">ABOUT</span>
+        <span class="">About</span>
       </nuxt-link>
     </div>
     <div class="column has-text-weight-semibold has-text-right">
@@ -42,6 +42,7 @@ export default {
 
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css?family=Sree+Krushnadevaraya');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:900');
 
 $red: #e04f62;
 $yellow: #efecca;
@@ -95,6 +96,10 @@ $bar-spacing: 15px;
 
 .text-font-sree {
   font-family: 'Sree Krushnadevaraya', serif;
+}
+
+.text-font-icon {
+  font-family: 'Merriweather', serif;
 }
 
 .logo-name {
