@@ -50,7 +50,7 @@
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="container columns is-fluid"> 
         <div class="content column is-three-fifths is-offset-one-fifth content-box">
-          <vue-disqus shortname="flashcms" :identifier="post.fields.slug" :title="post.fields.title" :url="'https://flashcms.netlify.com' + this.$route.path" />
+          <vue-disqus ref="disqus" shortname="flashcms" />
         </div>
       </div>
     </section>
@@ -76,6 +76,14 @@ export default {
       lazyLoad: false
     }
   },
+  watch: {
+    '$route.params.slug'(curr, old) {
+      // disqus does not properly reload just based off the
+      // disqusId computed property - we need to manually change it
+      // when we know it should update
+      this.$refs.disqus.init()
+    }
+  },
   asyncData({ params, error, payload }) {
     if (payload) return { post: payload }
 
@@ -97,7 +105,7 @@ export default {
   },
   head() {
     // eslint-disable-next-line no-console
-    // console.log(this.$route.path)
+    // console.log('https://flashcms.netlify.com' + this.$route.path)
     return {
       title: this.post.fields.title
     }
