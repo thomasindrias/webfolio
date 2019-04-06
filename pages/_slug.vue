@@ -50,7 +50,7 @@
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="container columns is-fluid"> 
         <div class="content column is-three-fifths is-offset-one-fifth content-box">
-          <vue-disqus ref="disqus" shortname="flashcms" />
+          <disqus ref="disqus" :shortname="shortName" :identifier="shortName + post.fields.slug" />
         </div>
       </div>
     </section>
@@ -61,6 +61,7 @@
 import client from '~/plugins/contentful'
 import VueMarkdown from 'vue-markdown'
 import moment from 'moment'
+import Disqus from 'vue-disqus/dist/vue-disqus.vue'
 
 export default {
   filters: {
@@ -69,11 +70,14 @@ export default {
     }
   },
   components: {
-    'vue-markdown': VueMarkdown
+    'vue-markdown': VueMarkdown,
+    Disqus
   },
   data: function() {
     return {
-      lazyLoad: false
+      lazyLoad: false,
+      shortName: 'flashcms',
+      id: 'unique'
     }
   },
   watch: {

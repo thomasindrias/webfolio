@@ -46,7 +46,6 @@ module.exports = {
   */
   plugins: [
     '~/plugins/contentful',
-    '~/plugins/disqus',
     {
       src: '~/plugins/vue-lazyload',
       ssr: false
