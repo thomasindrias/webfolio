@@ -50,7 +50,7 @@
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="container columns is-fluid"> 
         <div class="content column is-three-fifths is-offset-one-fifth content-box">
-          <vue-disqus shortname="flashcms" :identifier="post.fields.slug" url="https://flashcms.netlify.com" />
+          <vue-disqus shortname="flashcms" :identifier="post.fields.slug" url="https://flashcms.netlify.com/" />
         </div>
       </div>
     </section>
