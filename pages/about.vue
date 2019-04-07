@@ -74,7 +74,8 @@ export default {
 $black: #4a4a4a;
 
 .container-box {
-  padding: 12% 20%;
+  padding: 10% 20%;
+  margin: 10px 0;
   position: relative;
 }
 
