@@ -121,17 +121,17 @@ a {
   color: inherit;
   text-decoration: none;
   &:hover .post-title {
-    @include transition(color 0.3s ease);
+    @include transition(color 0.1s ease);
     color: $red;
   }
   &:hover .post-image {
-    @include transition(opacity 0.3s ease);
+    @include transition(opacity 0.1s ease);
     opacity: 0.9;
   }
 }
 
 .post-image {
-  @include transition(opacity 0.3s ease);
+  @include transition(opacity 0.1s ease);
   display: block;
   width: 100%;
   object-fit: cover;
@@ -154,7 +154,7 @@ a {
 }
 
 .post-title {
-  @include transition(color 0.3s ease);
+  @include transition(color 0.1s ease);
   font-size: 1.125rem;
   line-height: 1.4;
   color: $black;

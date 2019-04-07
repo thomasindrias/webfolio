@@ -1,24 +1,34 @@
 <template>
   <div :class="{'animated fadeIn': lazyLoad}">
-    <section class="section container-box">
-      <div class="columns box-padding">
-        <div class="column text-box title is-size-1 is-size-3-mobile has-text-centered-mobile">
+    <section v-scroll-reveal.reset="{ delay: 250 }" class="section container-box">
+      <div class="columns is-centered is-multiline">
+        <div class="column is-4 svg-box ">
+          <img class="svg-size-2 " src="../assets/svg/profile.svg" alt="">
+        </div>
+        <div class="column is-full text-box title is-size-1 is-size-3-mobile has-text-centered">
+          <span>Hi, my name is Thomas! </span>
+        </div>
+      </div>
+    </section>
+    
+    <section v-scroll-reveal.reset="{ delay: 250, duration: 1000 }" class="section container-box-big bg-gradient">
+      <div class="columns ">
+        <div class="column text-box title is-size-1 is-size-3-mobile has-text-centered-mobile has-text-white-ter">
           <span>I am a web developer.</span>
         </div>
         <div class="column svg-box is-three-fifths">
-          <img class="svg-1" src="../assets/svg/dev.svg" alt="">
+          <img class="svg-2" src="../assets/svg/dev.svg" alt="">
         </div>
       </div>
     </section>
 
-    <section class="section container-box">
-      <div class="columns reverse-row-order box-padding">
+    <section v-scroll-reveal.reset="{ delay: 250 }" class="section container-box">
+      <div class="columns reverse-row-order ">
         <div class="column text-box title is-size-1 is-size-3-mobile has-text-right has-text-centered-mobile">
-          <span>I am a student.</span>
+          <span>Also a student.</span>
         </div>
-
         <div class="column svg-box is-three-fifths">
-          <img class="svg-2" src="../assets/svg/education.svg" alt="">
+          <img class="svg-size-1" src="../assets/svg/education.svg" alt="">
         </div>
       </div>
     </section>
@@ -64,22 +74,33 @@ export default {
 $black: #4a4a4a;
 
 .container-box {
-  height: 80vh;
+  padding: 12% 20%;
   position: relative;
 }
 
-.box-padding {
-  padding: 6vh 12vw;
+.container-box-big {
+  padding: 30% 10%;
+  position: relative;
 }
 
 .svg-box {
   margin-top: 2vh;
 }
 
-.svg-2 {
+.svg-size-1 {
   height: 90%;
 }
 
+.bg-gradient {
+  background-image: linear-gradient(
+    to left bottom,
+    #cb4ec6,
+    #ab55cb,
+    #895acd,
+    #635dca,
+    #325ec4
+  );
+}
 .reverse-row-order {
   flex-direction: row-reverse;
 }
