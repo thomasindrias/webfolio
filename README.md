@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/819f2038-e6d4-4711-a3dd-38fa865a7c0b/deploy-status)](https://app.netlify.com/sites/flashcms/deploys)
+
 # Portfolio
 
 > A portfolio.
