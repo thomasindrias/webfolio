@@ -25,11 +25,6 @@ body {
   height: 100%;
 }
 
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-}
-
 .site {
   display: flex;
   min-height: 100vh;

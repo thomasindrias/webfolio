@@ -19,16 +19,7 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'stylesheet',
-        href: 'https://use.fontawesome.com/releases/v5.8.1/css/all.css',
-        integrity:
-          'sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf',
-        crossorigin: 'anonymous'
-      }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   /*
@@ -66,7 +57,8 @@ module.exports = {
     '@nuxtjs/bulma',
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    'nuxt-webfontloader'
   ],
 
   /*
@@ -77,8 +69,21 @@ module.exports = {
   },
 
   /*
-  ** Markdownit configuration
+  ** webfont configuration
   */
+  webfontloader: {
+    google: {
+      families: [
+        'Roboto:100,200,300,400,500,600,700,900',
+        'Lato:100,200,300,400,500,600,700,900',
+        'Sree Krushnadevaraya'
+      ]
+    },
+    custom: {
+      families: ['Font Awesome 5 Icons:400,900', 'Font Awesome 5 Brands:400'],
+      urls: ['//use.fontawesome.com/releases/v5.8.1/css/all.css']
+    }
+  },
 
   /*
   ** Axios module configuration

@@ -7,8 +7,8 @@
         </div>
       </section>
       <section
-        class="section"
         :class="{'hidden animated fadeIn': !lazyLoad}"
+        class="section"
       >
         <div class="container">
           <div class="columns">
@@ -28,8 +28,8 @@
               />
               <div
                 v-scroll-reveal.reset
-                class="end column has-text-centered"
                 :class="{'not-hidden animated fadeIn delay-1s': lazyLoad}"
+                class="end column has-text-centered"
               >
                 <span class="title">No more posts ✍️</span>
               </div>

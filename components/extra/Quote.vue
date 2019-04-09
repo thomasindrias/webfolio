@@ -1,5 +1,7 @@
 <template>
-  <div class="content column is-three-fifths is-offset-one-fifth is-size-1 banner content-box animated delay-1s fadeIn">
+  <div 
+    class="content column is-three-fifths is-offset-one-fifth is-size-1 banner content-box animated delay-1s fadeIn"
+  >
     <span style="color:#efecca">“</span> 
     <span id="text" /> 
     <span style="color:#efecca">”</span>
@@ -38,10 +40,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css?family=Sree+Krushnadevaraya');
-
 .banner {
-  font-family: 'Sree Krushnadevaraya', serif;
+  font-family: 'Sree Krushnadevaraya';
 }
 
 .content-box {

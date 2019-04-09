@@ -5,7 +5,7 @@
         <!-- eslint-disable-next-line vue/no-v-html -->
         <div class="container columns is-fluid"> 
           <div class="content column is-three-fifths is-offset-one-fifth content-box">
-            <h1 class="title is-size-1">
+            <h1 class="title is-size-1 is-size-2-mobile">
               {{ post.fields.title }}
             </h1>
             <hr>
@@ -15,10 +15,10 @@
                 class="avatar column is-narrow"
               />
               <div class="column">
-                <p class="is-size-4 has-text-weight-semibold is-family-monospace avatar-text">
+                <p class="is-size-4 is-size-5-mobile has-text-weight-semibold is-family-monospace avatar-text">
                   {{ post.fields.author.fields.name }}
                 </p>
-                <p class="is-size-6 has-text-weight-semibold is-family-monospace avatar-text">
+                <p class="is-size-6 is-size-7-mobile has-text-weight-semibold is-family-monospace avatar-text">
                   {{ post.sys.createdAt | formatDate }}
                 </p>
               </div>
@@ -35,9 +35,8 @@
     
       <section v-scroll-reveal.reset class="section container-box">
         <hr>
-        <!-- eslint-disable-next-line vue/no-v-html -->
         <div class="container columns is-fluid"> 
-          <div class="content column is-three-fifths is-offset-one-fifth content-box">
+          <div class="content column is-three-fifths is-offset-one-fifth content-box content-text">
             <vue-markdown>{{ post.fields.content }}</vue-markdown>
           </div>
         </div>
@@ -45,7 +44,6 @@
     
       <section class="section container-box">
         <hr>
-        <!-- eslint-disable-next-line vue/no-v-html -->
         <div class="container columns is-fluid"> 
           <div class="content column is-three-fifths is-offset-one-fifth content-box">
             <disqus ref="disqus" :shortname="shortName" :identifier="shortName + post.fields.slug" />
@@ -133,6 +131,11 @@ $border-radius-size: 14px;
 
 .avatar-text {
   margin-bottom: 0 !important;
+}
+
+.content-text {
+  font-size: 20px;
+  line-height: 40px;
 }
 
 .bg-image {

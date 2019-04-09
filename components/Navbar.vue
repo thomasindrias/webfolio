@@ -1,17 +1,14 @@
 <template>
   <div class="custom-navbar columns is-vcentered">
     <div class="column">
-      <div
-        
-        class="hamburger"
-        @click="isHidden = !isHidden"
-      >
-        <div class="hamburger-menu" :class="{ 'animate': !isHidden }" />	  
+      <!-- eslint-disable-next-line -->
+      <div class="hamburger" @click="isHidden = !isHidden">
+        <div :class="{ 'animate': !isHidden }" class="hamburger-menu" />	  
       </div>
     </div>
     <div
-      class="nav-items column has-text-centered text-font-icon is-size-4 no-select"
       :class="{'animated fadeInDown': !isHidden, 'hidden animated fadeOutUp ': isHidden}"
+      class="nav-items column has-text-centered text-font-icon is-size-4 no-select"
     >
       <nuxt-link style="margin: 0 30px;" class="nav-item" exact to="/">
         <span class="">Home</span>

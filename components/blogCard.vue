@@ -74,8 +74,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
-
 $bg: #eedfcc;
 $text: #777;
 $black: #121212;
