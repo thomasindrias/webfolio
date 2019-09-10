@@ -44,6 +44,10 @@ module.exports = {
     {
       src: '~/plugins/vue-scroll-reveal',
       ssr: false
+    },
+    {
+      src: '~/plugins/fonts.js',
+      ssr: false
     }
   ],
 

@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="content column is-three-fifths is-offset-one-fifth is-size-1 banner content-box animated delay-1s fadeIn"
+    class="content column is-three-fifths is-offset-one-fifth is-size-1 banner is-size-3-mobile content-box animated delay-1s fadeIn"
   >
     <span style="color:#efecca">“</span> 
     <span id="text" /> 

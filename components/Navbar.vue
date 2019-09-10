@@ -26,6 +26,9 @@
 </template>
 
 <script>
+//  import 'typeface-merriweather'
+//  import 'typeface-sree-krushnadevaraya'
+
 export default {
   name: 'Navbar',
   data: function() {
@@ -38,9 +41,6 @@ export default {
 
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css?family=Sree+Krushnadevaraya');
-@import url('https://fonts.googleapis.com/css?family=Merriweather:900');
-
 $red: #e04f62;
 $yellow: #efecca;
 $black: #4a4a4a;

@@ -55,10 +55,10 @@
 </template>
 
 <script>
-import client from '~/plugins/contentful'
-import VueMarkdown from 'vue-markdown'
 import moment from 'moment'
 import Disqus from 'vue-disqus/dist/vue-disqus.vue'
+import VueMarkdown from 'vue-markdown'
+import client from '~/plugins/contentful'
 
 export default {
   filters: {
