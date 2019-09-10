@@ -15,9 +15,9 @@
 
         <!-- eslint-disable-next-line vue/no-v-html -->
         <p class="post-description has-text-grey">
-          <no-ssr>
+          <client-only>
             <vue-markdown>{{ desc | truncate(120) }} </vue-markdown>
-          </no-ssr>
+          </client-only>
         </p>
         <p class="post-author">
           By {{ author }}
