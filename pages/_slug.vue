@@ -111,6 +111,18 @@ export default {
     return {
       title: this.post.fields.title
     }
+  },
+  metaInfo() {
+    return {
+      title: this.lazyLoad ? 'Loading...' : this.post.fields.title,
+      meta: [
+        {
+          vmid: 'og:description',
+          name: 'og:description',
+          content: this.post.fields.title
+        }
+      ]
+    }
   }
 }
 </script>

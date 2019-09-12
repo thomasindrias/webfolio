@@ -66,6 +66,10 @@ export default {
   },
   mounted: function() {
     this.lazyLoad = true
+  },
+  metaInfo: {
+    title: 'Home',
+    meta: [{ vmid: 'description', name: 'description', content: 'About' }]
   }
 }
 </script>

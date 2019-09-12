@@ -2,19 +2,14 @@
   <div>
     <div :class="{'animated fadeIn': lazyLoad}">
       <section class="section container-box">
-        <div class="container quote columns"> 
+        <div class="container quote columns">
           <quote v-scroll-reveal.reset class="animated delay-1s fadeIn" />
         </div>
       </section>
-      <section
-        :class="{'hidden animated fadeIn': !lazyLoad}"
-        class="section"
-      >
+      <section :class="{'hidden animated fadeIn': !lazyLoad}" class="section">
         <div class="container">
           <div class="columns">
-            <div
-              class="columns is-multiline"
-            >
+            <div class="columns is-multiline">
               <blog-card
                 v-for="(post, index) in posts"
                 :key="index"
@@ -77,6 +72,10 @@ export default {
   },
   mounted: function() {
     this.lazyLoad = true
+  },
+  metaInfo: {
+    title: 'Home',
+    meta: [{ vmid: 'description', name: 'description', content: 'Homepage' }]
   }
 }
 </script>

@@ -10988,7 +10988,7 @@ vue-markdown@^2.2.4:
     markdown-it-task-lists "^2.0.1"
     markdown-it-toc-and-anchor "^4.1.2"
 
-vue-meta@^2.2.1:
+vue-meta@^2.2.1, vue-meta@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/vue-meta/-/vue-meta-2.2.2.tgz#ec6be76d75b7d6e4abb6d995d92245487081428b"
   integrity sha512-aSzjfc5xV3szxPZMsSk6JeoHUqwrVHNPzpMciTCek56LDd2xKWCv+Ch4IGWL5EIxVyfxA+krsD7T11PTyLY4TQ==
