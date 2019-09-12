@@ -15,7 +15,12 @@ export default {
   components: {
     'footer-prop': Footer,
     navbar: Navbar
-  }
+  },
+      metaInfo: {
+      meta: [
+        { charset: 'utf-8' }
+      ]
+    }
 }
 </script>
 
