@@ -3,7 +3,7 @@
     <div :class="{'animated fadeIn': lazyLoad}">
       <section v-scroll-reveal.reset class="section is-medium container-box">
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <div class="container columns is-fluid"> 
+        <div class="container columns is-fluid">
           <div class="content column is-three-fifths is-offset-one-fifth content-box">
             <h1 class="title is-size-1 is-size-2-mobile">
               {{ post.fields.title }}
@@ -11,14 +11,18 @@
             <hr>
             <div class="columns is-mobile is-vcentered">
               <div
-                :style="{ backgroundImage: 'url(' + post.fields.author.fields.portrait.fields.file.url + ')' }" 
+                :style="{ backgroundImage: 'url(' + post.fields.author.fields.portrait.fields.file.url + ')' }"
                 class="avatar column is-narrow"
               />
               <div class="column">
-                <p class="is-size-4 is-size-5-mobile has-text-weight-semibold is-family-monospace avatar-text">
+                <p
+                  class="is-size-4 is-size-5-mobile has-text-weight-semibold is-family-monospace avatar-text"
+                >
                   {{ post.fields.author.fields.name }}
                 </p>
-                <p class="is-size-6 is-size-7-mobile has-text-weight-semibold is-family-monospace avatar-text">
+                <p
+                  class="is-size-6 is-size-7-mobile has-text-weight-semibold is-family-monospace avatar-text"
+                >
                   {{ post.sys.createdAt | formatDate }}
                 </p>
               </div>
@@ -26,25 +30,25 @@
           </div>
         </div>
       </section>
-    
+
       <section
         v-scroll-reveal.reset
-        :style="{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url(' + post.fields.slugImage.fields.file.url + ')' }" 
+        :style="{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url(' + contentImageUrl + ')' }"
         class="hero is-info is-fullheight bg-image"
       />
-    
+
       <section v-scroll-reveal.reset class="section container-box">
         <hr>
-        <div class="container columns is-fluid"> 
+        <div class="container columns is-fluid">
           <div class="content column is-three-fifths is-offset-one-fifth content-box content-text">
             <vue-markdown>{{ post.fields.content }}</vue-markdown>
           </div>
         </div>
       </section>
-    
+
       <section class="section container-box">
         <hr>
-        <div class="container columns is-fluid"> 
+        <div class="container columns is-fluid">
           <div class="content column is-three-fifths is-offset-one-fifth content-box">
             <disqus ref="disqus" :shortname="shortName" :identifier="shortName + post.fields.slug" />
           </div>
@@ -74,7 +78,8 @@ export default {
     return {
       lazyLoad: false,
       shortName: 'flashcms',
-      id: 'unique'
+      id: 'unique',
+      contentImageUrl: ''
     }
   },
   asyncData({ params, error, payload }) {
@@ -98,7 +103,11 @@ export default {
   },
   head() {
     // eslint-disable-next-line no-console
-    // console.log(this.post.fields.slug)
+    // console.log(this.post)
+    if (this.post.fields.contentImage)
+      this.contentImageUrl = this.post.fields.contentImage[0].fields.file.url
+    else this.contentImageUrl = this.post.fields.slugImage.fields.file.url
+
     return {
       title: this.post.fields.title
     }
