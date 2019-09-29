@@ -25,7 +25,7 @@
     <section v-scroll-reveal.reset="{ delay: 250 }" class="section container-box">
       <div class="columns reverse-row-order ">
         <div class="column text-box title is-size-1 is-size-3-mobile has-text-right has-text-centered-mobile">
-          <span>Also a student.</span>
+          <span>Also a student at Linköpings University.</span>
         </div>
         <div class="column svg-box is-three-fifths">
           <img class="svg-size-1" src="../assets/svg/education.svg" alt="">

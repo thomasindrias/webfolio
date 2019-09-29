@@ -37,7 +37,7 @@
         class="hero is-info is-fullheight bg-image"
       />
 
-      <section v-scroll-reveal.reset class="section container-box">
+      <section class="section container-box">
         <hr>
         <div class="container columns is-fluid">
           <div class="content column is-three-fifths is-offset-one-fifth content-box content-text">
