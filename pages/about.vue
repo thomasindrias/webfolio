@@ -14,7 +14,7 @@
     <section v-scroll-reveal.reset="{ delay: 250, duration: 1000 }" class="section container-box-big bg-gradient">
       <div class="columns ">
         <div class="column text-box title is-size-1 is-size-3-mobile has-text-centered-mobile has-text-white-ter">
-          <span>I am a web developer.</span>
+          <span>I develop web and native apps.</span>
         </div>
         <div class="column svg-box is-three-fifths">
           <img class="svg-2" src="../assets/svg/dev.svg" alt="">
