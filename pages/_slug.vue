@@ -131,7 +131,7 @@ $border-radius-size: 14px;
 }
 
 img {
-  max-height: 720px;
+  max-height: 600px !important;
 }
 
 .hidden {
