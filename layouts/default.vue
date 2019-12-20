@@ -28,6 +28,11 @@ body {
   height: 100%;
 }
 
+blockquote,
+pre {
+  max-height: 600px !important;
+}
+
 .site {
   display: flex;
   min-height: 100vh;
