@@ -134,6 +134,11 @@ img {
   max-height: 600px !important;
 }
 
+blockquote,
+pre {
+  max-height: 600px !important;
+}
+
 .hidden {
   visibility: hidden;
 }
