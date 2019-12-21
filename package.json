@@ -1,7 +1,7 @@
 {
-  "name": "portfolio",
+  "name": "Journal",
   "version": "1.0.0",
-  "description": "A portfolio.",
+  "description": "Welcome to Thomas's journal",
   "author": "Thomas Indrias",
   "private": true,
   "scripts": {
