@@ -1,11 +1,9 @@
 <template>
   <footer class="footer">
     <div class="content has-text-centered has-text-weight-semibold">
-      <p>
-        © 2019 Thomas Indrias 💻 Powered by Nuxt and Contentful.
-      </p>
+      <p>© 2020 Thomas Indrias 💻 Powered by Nuxt and Contentful.</p>
       <div>
-        <a class="icon icon-size " href="https://www.instagram.com/tictact0m/">
+        <a class="icon icon-size" href="https://www.instagram.com/tictact0m/">
           <i class="hvr-grow fa-lg fab fa-instagram" />
         </a>
         <a class="icon icon-size" href="https://www.linkedin.com/in/thomas-indrias/">
