@@ -27,6 +27,11 @@ module.exports = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
+  meta: {
+    ogTitle: false,
+    ogDescription: false
+  },
+
   /*
   ** Customize the progress-bar color
   */
