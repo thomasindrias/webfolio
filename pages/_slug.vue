@@ -125,13 +125,11 @@ export default {
         {
           hid: 'title',
           property: 'og:title',
-          name: 'title',
           content: this.post.fields.title
         },
         {
           hid: 'description',
           property: 'og:description',
-          name: 'description',
           content: this.truncate(this.post.fields.content, 120)
         },
         {
