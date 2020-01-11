@@ -93,10 +93,12 @@ $bar-spacing: 15px;
 
 .text-font-sree {
   font-family: 'Sree Krushnadevaraya', serif;
+  font-display: swap;
 }
 
 .text-font-icon {
   font-family: 'Merriweather', serif;
+  font-display: swap;
 }
 
 .logo-name {
