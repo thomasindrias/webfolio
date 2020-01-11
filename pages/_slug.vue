@@ -5,8 +5,10 @@
         <!-- eslint-disable-next-line vue/no-v-html -->
         <div class="container columns is-fluid">
           <div class="content column is-three-fifths is-offset-one-fifth content-box">
-            <h1 class="title is-size-1 is-size-2-mobile">{{ post.fields.title }}</h1>
-            <hr />
+            <h1 class="title is-size-1 is-size-2-mobile">
+              {{ post.fields.title }}
+            </h1>
+            <hr>
             <div class="columns is-mobile is-vcentered">
               <div
                 :style="{ backgroundImage: 'url(' + post.fields.author.fields.portrait.fields.file.url + ')' }"
@@ -15,10 +17,14 @@
               <div class="column">
                 <p
                   class="is-size-4 is-size-5-mobile has-text-weight-semibold is-family-monospace avatar-text"
-                >{{ post.fields.author.fields.name }}</p>
+                >
+                  {{ post.fields.author.fields.name }}
+                </p>
                 <p
                   class="is-size-6 is-size-7-mobile has-text-weight-semibold is-family-monospace avatar-text"
-                >{{ post.sys.createdAt | formatDate }}</p>
+                >
+                  {{ post.sys.createdAt | formatDate }}
+                </p>
               </div>
             </div>
           </div>
@@ -33,7 +39,7 @@
       </section>
 
       <section class="section container-box">
-        <hr />
+        <hr>
         <div class="container columns is-fluid">
           <div class="content column is-three-fifths is-offset-one-fifth content-box content-text">
             <vue-markdown>{{ post.fields.content }}</vue-markdown>
@@ -42,7 +48,7 @@
       </section>
 
       <section class="section container-box">
-        <hr />
+        <hr>
         <div class="container columns is-fluid">
           <div class="content column is-three-fifths is-offset-one-fifth content-box">
             <disqus ref="disqus" :shortname="shortName" :identifier="shortName + post.fields.slug" />
@@ -63,6 +69,13 @@ export default {
   filters: {
     formatDate: function(value) {
       return moment(String(value)).format('lll')
+    },
+    truncate: function(text, stop, clamp) {
+      let start = 0
+      if (text.charAt(0) === '#') start = 1
+      return (
+        text.slice(start, stop) + (stop < text.length ? clamp || '...' : '')
+      )
     }
   },
   components: {
@@ -104,17 +117,13 @@ export default {
     else this.contentImageUrl = this.post.fields.slugImage.fields.file.url
 
     return {
-      title: this.post.fields.title
-    }
-  },
-  metaInfo() {
-    return {
-      title: this.lazyLoad ? 'Loading...' : this.post.fields.title,
+      title: this.post.fields.title,
       meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
-          vmid: 'og:description',
-          name: 'og:description',
-          content: this.post.fields.title
+          hid: 'description',
+          name: 'description',
+          content: this.truncate(this.post.fields.content, 120)
         }
       ]
     }
