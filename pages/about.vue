@@ -106,7 +106,6 @@ $black: #4a4a4a;
     #325ec4
   );
 }
-
 .reverse-row-order {
   flex-direction: row-reverse;
 }
