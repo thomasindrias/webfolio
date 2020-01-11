@@ -123,18 +123,13 @@ export default {
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
-          hid: 'title',
-          property: 'og:title',
-          content: this.post.fields.title
-        },
-        {
           hid: 'description',
           property: 'og:description',
           name: 'description',
           content: this.truncate(this.post.fields.content, 120)
         },
         {
-          hid: 'og:image',
+          hid: 'image',
           property: 'og:image',
           content: this.post.fields.slugImage.fields.file.url
         }

@@ -19,7 +19,7 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description },
       {
-        hid: 'og:image',
+        hid: 'image',
         property: 'og:image',
         content: '/profile.png'
       }
