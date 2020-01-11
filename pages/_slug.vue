@@ -69,13 +69,6 @@ export default {
   filters: {
     formatDate: function(value) {
       return moment(String(value)).format('lll')
-    },
-    truncate: function(text, stop, clamp) {
-      let start = 0
-      if (text.charAt(0) === '#') start = 1
-      return (
-        text.slice(start, stop) + (stop < text.length ? clamp || '...' : '')
-      )
     }
   },
   components: {
@@ -108,6 +101,15 @@ export default {
         // eslint-disable-next-line no-console
         .catch(e => console.log(e))
     )
+  },
+  methods: {
+    truncate: function(text, stop, clamp) {
+      let start = 0
+      if (text.charAt(0) === '#') start = 1
+      return (
+        text.slice(start, stop) + (stop < text.length ? clamp || '...' : '')
+      )
+    }
   },
   head() {
     // eslint-disable-next-line no-console
