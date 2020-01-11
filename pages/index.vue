@@ -73,9 +73,16 @@ export default {
   mounted: function() {
     this.lazyLoad = true
   },
-  metaInfo: {
-    title: 'Home',
-    meta: [{ vmid: 'description', name: 'description', content: 'Homepage' }]
+  head() {
+    return {
+      meta: [
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: '/logo.svg'
+        }
+      ]
+    }
   }
 }
 </script>
