@@ -21,7 +21,7 @@ module.exports = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: '/logo.png'
+        content: '/profile.png'
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
