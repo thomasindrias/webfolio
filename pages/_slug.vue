@@ -121,7 +121,7 @@ export default {
     return {
       title: this.post.fields.title,
       meta: [
-        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        // Open Graph
         {
           hid: 'title',
           property: 'og:title',

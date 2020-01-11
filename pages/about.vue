@@ -72,7 +72,12 @@ export default {
       title: 'About',
       meta: [
         {
-          hid: 'og:image',
+          hid: 'title',
+          property: 'og:title',
+          content: 'About'
+        },
+        {
+          hid: 'image',
           property: 'og:image',
           content: '/profile.png'
         }

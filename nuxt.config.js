@@ -18,6 +18,11 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
+        hid: 'title',
+        property: 'og:title',
+        content: 'Home'
+      },
+      {
         hid: 'description',
         property: 'og:description',
         content: pkg.description
