@@ -72,17 +72,6 @@ export default {
   },
   mounted: function() {
     this.lazyLoad = true
-  },
-  head() {
-    return {
-      meta: [
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: '/logo.png'
-        }
-      ]
-    }
   }
 }
 </script>

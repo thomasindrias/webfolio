@@ -126,6 +126,11 @@ export default {
           hid: 'description',
           name: 'description',
           content: this.truncate(this.post.fields.content, 120)
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.post.fields.slugImage.fields.file.url
         }
       ]
     }
