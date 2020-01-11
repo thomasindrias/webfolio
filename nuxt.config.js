@@ -13,14 +13,14 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: 'Thomas Indrias | Frontend Engineer',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'title',
         property: 'og:title',
-        content: 'Home'
+        content: 'Thomas Indrias | Frontend Engineer'
       },
       {
         hid: 'description',
