@@ -3,13 +3,21 @@
     <div :class="{'animated fadeIn': lazyLoad}">
       <section class="section container-box">
         <div class="container quote columns">
-          <quote v-scroll-reveal.reset class="animated delay-1s fadeIn" />
+          <quote
+            v-scroll-reveal.reset
+            class="animated delay-1s fadeIn"
+          />
         </div>
       </section>
-      <section :class="{'hidden animated fadeIn': !lazyLoad}" class="section">
+      <section
+        :class="{'hidden animated fadeIn': !lazyLoad}"
+        class="section"
+      >
+        <dropdown @genre="toggleDropdown" />
+        <hr>
         <div class="container">
           <div class="columns">
-            <div class="columns is-multiline">
+            <div class="results columns is-multiline">
               <blog-card
                 v-for="(post, index) in posts"
                 :key="index"
@@ -24,7 +32,7 @@
               <div
                 v-scroll-reveal.reset
                 :class="{'not-hidden animated fadeIn delay-1s': lazyLoad}"
-                class="end column has-text-centered"
+                class="end column has-text-centered is-centered is-fullwidth"
               >
                 <span class="title">No more posts ✍️</span>
               </div>
@@ -40,15 +48,27 @@
 import client from '~/plugins/contentful'
 import Quote from '~/components/extra/Quote.vue'
 import blogCard from '~/components/blogCard.vue'
+import Dropdown from '~/components/extra/Dropdown.vue'
 
 export default {
   components: {
     quote: Quote,
-    'blog-card': blogCard
+    'blog-card': blogCard,
+    Dropdown
   },
   data: function() {
     return {
-      lazyLoad: false
+      lazyLoad: false,
+      genre: null
+    }
+  },
+  computed: {
+    posts: function() {
+      return !this.genre
+        ? this.rawPosts
+        : this.rawPosts.filter(item => {
+            return item.fields.genre === this.genre
+          })
     }
   },
   asyncData() {
@@ -63,7 +83,7 @@ export default {
           // console.log(entries.items)
 
           return {
-            posts: entries.items
+            rawPosts: entries.items
           }
         })
         // eslint-disable-next-line no-console
@@ -72,6 +92,12 @@ export default {
   },
   mounted: function() {
     this.lazyLoad = true
+  },
+  methods: {
+    toggleDropdown(option) {
+      if (option === 'All') this.genre = null
+      else this.genre = option
+    }
   }
 }
 </script>
@@ -89,6 +115,10 @@ $black: #4a4a4a;
 
 .quote {
   min-height: 40vh;
+}
+
+.results {
+  width: 100%;
 }
 
 .end {
