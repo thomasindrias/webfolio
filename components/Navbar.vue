@@ -11,10 +11,10 @@
       class="nav-items column has-text-centered text-font-icon is-size-4 no-select"
     >
       <nuxt-link style="margin: 0 30px;" class="nav-item" exact to="/">
-        <span class="">Home</span>
+        <span @click="isHidden = !isHidden" class="">Home</span>
       </nuxt-link>
       <nuxt-link style="margin: 0 30px;" class="nav-item" exact to="/about">
-        <span class="">About</span>
+        <span @click="isHidden = !isHidden" class="">About</span>
       </nuxt-link>
     </div>
     <div class="column has-text-weight-semibold has-text-right">
