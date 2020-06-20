@@ -2,20 +2,11 @@
   <div class="custom-navbar columns is-vcentered">
     <div class="column">
       <!-- eslint-disable-next-line -->
-      <div class="hamburger" @click="isHidden = !isHidden">
-        <div :class="{ 'animate': !isHidden }" class="hamburger-menu" />	  
+      <div @click="isHidden = !isHidden" class="hamburger">
+        <span id="up" />
+        <span id="middle" />
+        <span id="down" />
       </div>
-    </div>
-    <div
-      :class="{'animated fadeInDown': !isHidden, 'hidden animated fadeOutUp ': isHidden}"
-      class="nav-items column has-text-centered text-font-icon is-size-4 no-select"
-    >
-      <nuxt-link style="margin: 0 30px;" class="nav-item" exact to="/">
-        <span @click="isHidden = !isHidden" class="">Home</span>
-      </nuxt-link>
-      <nuxt-link style="margin: 0 30px;" class="nav-item" exact to="/about">
-        <span @click="isHidden = !isHidden" class="">About</span>
-      </nuxt-link>
     </div>
     <div class="column has-text-weight-semibold has-text-right">
       <nuxt-link to="/">
@@ -29,11 +20,64 @@
 //  import 'typeface-merriweather'
 //  import 'typeface-sree-krushnadevaraya'
 
+import anime from 'animejs'
+
 export default {
   name: 'Navbar',
-  data: function() {
-    return {
-      isHidden: true
+  props: {
+    isHidden: {
+      type: Boolean,
+      default: false
+    }
+  },
+  watch: {
+    isHidden: function(isHidden, isHiddenOld) {
+      this.toggleMenu()
+    }
+  },
+  methods: {
+    toggleMenu() {
+      const up = anime.timeline({
+        duration: 300,
+        easing: 'easeInOutQuad'
+      })
+
+      const middle = anime.timeline({
+        duration: 150,
+        easing: 'easeInOutQuad'
+      })
+
+      const down = anime.timeline({
+        duration: 300,
+        easing: 'easeInOutQuad'
+      })
+
+      up.add({
+        targets: '#up',
+        top: this.isHidden
+          ? [{ value: '0', duration: 400, delay: 400 }]
+          : [{ value: '50%', duration: 400 }],
+        rotate: this.isHidden
+          ? [{ value: '0deg', duration: 200, elasticity: 0 }]
+          : [{ value: '45deg', duration: 200, elasticity: 0, delay: 400 }]
+      })
+
+      middle.add({
+        targets: '#middle',
+        opacity: this.isHidden ? { value: '1', delay: 300 } : '0'
+      })
+
+      down.add({
+        targets: '#down',
+        top: this.isHidden
+          ? [{ value: '100%', duration: 400, delay: 200 }]
+          : [{ value: '50%', duration: 400 }],
+        rotate: this.isHidden
+          ? [{ value: '0deg', duration: 200, elasticity: 0 }]
+          : [{ value: '-45deg', duration: 200, elasticity: 0, delay: 400 }]
+      })
+
+      this.$emit('toggle', this.isHidden)
     }
   }
 }
@@ -45,8 +89,8 @@ $red: #e04f62;
 $yellow: #efecca;
 $black: #4a4a4a;
 $bar-width: 60px;
-$bar-height: 5px;
-$bar-spacing: 15px;
+$bar-height: 4px;
+$bar-spacing: 10px;
 
 .nav-items a.nuxt-link-active {
   border-bottom: 4px solid $yellow;
@@ -91,19 +135,10 @@ $bar-spacing: 15px;
   color: $red;
 }
 
-.text-font-sree {
-  font-family: 'Sree Krushnadevaraya', serif;
-  font-display: swap;
-}
-
-.text-font-icon {
-  font-family: 'Merriweather', serif;
-  font-display: swap;
-}
-
 .logo-name {
   font-size: 2.5rem;
   color: $black;
+  z-index: 100;
 }
 
 .custom-navbar {
@@ -116,61 +151,42 @@ $bar-spacing: 15px;
 }
 
 .hamburger {
-  display: flex;
+  display: block;
+  position: relative;
   width: $bar-width;
   height: $bar-height + $bar-spacing * 2;
   cursor: pointer;
+  z-index: 100;
 }
 
-.hamburger-menu,
-.hamburger-menu:after,
-.hamburger-menu:before {
+.hamburger span {
+  position: absolute;
+  left: 0;
+  display: block;
   width: $bar-width;
   height: $bar-height;
-}
-
-.hamburger-menu {
-  position: relative;
-  transform: translateY($bar-spacing);
   background: $black;
-  transition: all 0ms 300ms;
-
-  &.animate {
-    background: rgba(255, 255, 255, 0);
-  }
-}
-
-.hamburger-menu:before {
   content: '';
-  position: absolute;
-  left: 0;
-  bottom: $bar-spacing;
-  background: $black;
-  transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
-    transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+
+  -webkit-transition: width 500ms ease-in-out;
+  -moz-transition: width 500ms ease-in-out;
+  -o-transition: width 500ms ease-in-out;
+  transition: width 500ms ease-in-out;
 }
 
-.hamburger-menu:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: $bar-spacing;
-  background: $black;
-  transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
-    transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+.hamburger:hover #middle {
+  width: $bar-width - $bar-width/3;
 }
 
-.hamburger-menu.animate:after {
+#up {
   top: 0;
-  transform: rotate(45deg);
-  transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1),
-    transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.hamburger-menu.animate:before {
-  bottom: 0;
-  transform: rotate(-45deg);
-  transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1),
-    transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+#middle {
+  top: 50%;
+}
+
+#down {
+  top: 100%;
 }
 </style>

@@ -16,8 +16,8 @@
         <dropdown @genre="toggleDropdown" />
         <hr>
         <div class="container">
-          <div class="columns">
-            <div class="results columns is-multiline">
+          <div>
+            <div class="results is-multiline">
               <blog-card
                 v-for="(post, index) in posts"
                 :key="index"
@@ -28,6 +28,7 @@
                 :desc="post.fields.content"
                 :author="post.fields.author.fields.name"
                 :category="post.fields.genre"
+                class="result"
               />
               <div
                 v-scroll-reveal.reset
@@ -119,6 +120,10 @@ $black: #4a4a4a;
 
 .results {
   width: 100%;
+}
+
+.result {
+  margin: 0 4px;
 }
 
 .end {
