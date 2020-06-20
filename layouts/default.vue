@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-    <navbar v-scroll-reveal.reset :isHidden="isHidden" @toggle="toggleMenu" />
+    <navbar v-scroll-reveal.reset :isHiddenProp="isHidden" @toggle="toggleMenu" />
     <nuxt v-if="!animFinished || isHidden" class="site-content" />
     <footer-prop style="footer-spacing" />
   </div>
@@ -67,6 +67,21 @@ export default {
         targets: '.menu',
         width: this.isHidden ? '0vw' : '100vw'
       })
+
+      timeline.add(
+        {
+          targets: '.menu-bars',
+          opacity: [
+            { value: '0%', duration: 500 },
+            { value: '100%', duration: 500 }
+          ],
+          scale: [
+            { value: '60%', duration: 500 },
+            { value: '100%', duration: 500 }
+          ]
+        },
+        '-=650'
+      )
 
       timeline.add(
         {
