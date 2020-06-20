@@ -25,14 +25,22 @@ import anime from 'animejs'
 export default {
   name: 'Navbar',
   props: {
-    isHidden: {
+    isHiddenProp: {
       type: Boolean,
-      default: false
+      default: true
+    }
+  },
+  data: function() {
+    return {
+      isHidden: true
     }
   },
   watch: {
     isHidden: function(isHidden, isHiddenOld) {
       this.toggleMenu()
+    },
+    isHiddenProp: function(isHiddenProp, isHiddenPropOld) {
+      this.isHidden = isHiddenProp
     }
   },
   methods: {
