@@ -1,5 +1,12 @@
 <template>
   <div class="site">
+    <div
+    v-if="showNotis && isHidden"
+    class="notification py-1 has-text-white has-text-centered has-text-weight-semibold"
+    >
+      <button class="delete is-small" @click="hideNotis"></button>
+      New portfolio coming!
+    </div>
     <div class="menu">
       <div class="wrapper">
         <div class="menu-bars is-centered columns text-font-icon">
@@ -27,12 +34,13 @@ export default {
   name: 'Default',
   components: {
     'footer-prop': Footer,
-    navbar: Navbar
+    navbar: Navbar,
   },
   data: function() {
     return {
       isHidden: true,
-      animFinished: false
+      animFinished: false,
+      showNotis: false
     }
   },
   watch: {
@@ -40,9 +48,17 @@ export default {
       this.animate(isHidden)
     }
   },
+  mounted() {
+    console.log(this.$cookies.get('has-visited'))
+    if(!this.$cookies.get('has-visited')) this.showNotis = true;
+  },
   methods: {
     toggleMenu(isHidden) {
       this.isHidden = isHidden
+    },
+    hideNotis(){
+      this.showNotis = false;
+      this.$cookies.set('has-visited', true)
     },
     animate(isHidden) {
       this.animFinished = false
@@ -140,6 +156,15 @@ pre {
 
 .site-content {
   flex: 1;
+}
+
+.notification {
+  position: fixed;
+  z-index: 9999999;
+  min-width: 100%;
+  border-radius: 0;
+
+  background-color: $black;
 }
 
 .menu {

@@ -87,6 +87,7 @@ module.exports = {
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
     '@nuxtjs/style-resources',
+    'cookie-universal-nuxt',
     'nuxt-webfontloader',
     'nuxt-purgecss'
   ],
