@@ -61,7 +61,7 @@
 
 <script>
 import moment from 'moment'
-import Disqus from 'vue-disqus/dist/vue-disqus.vue'
+import { Disqus } from 'vue-disqus'
 import VueMarkdown from 'vue-markdown'
 import client from '~/plugins/contentful'
 

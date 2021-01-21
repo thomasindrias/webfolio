@@ -58,14 +58,14 @@ export default {
       })
 
       timeline.add({
-        duration: 100,
-        targets: '.logo-name',
-        color: this.isHidden ? '#4a4a4a' : '#FFF'
+        targets: '.menu',
+        width: this.isHidden ? '0vw' : '100vw'
       })
 
       timeline.add({
-        targets: '.menu',
-        width: this.isHidden ? '0vw' : '100vw'
+        duration: 100,
+        targets: '.logo-name',
+        color: this.isHidden ? '#4a4a4a' : '#FFF'
       })
 
       timeline.add(
@@ -95,6 +95,7 @@ export default {
         targets: '.hamburger span',
         background: this.isHidden ? '#4a4a4a' : '#FFF'
       })
+
 
       timeline.finished.then(() => {
         if (!isHidden) this.animFinished = true

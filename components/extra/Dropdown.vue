@@ -66,14 +66,14 @@ $light-gray: #ececec;
 
 .container {
   position: relative;
-  z-index: 99;
+  z-index: 10;
 
   display: flex;
   flex-direction: column;
   margin: 0;
   padding: 10px;
 
-  width: 150px;
+  width: 200px;
 
   border-bottom: 2px solid $gray;
 
@@ -83,16 +83,11 @@ $light-gray: #ececec;
   font-weight: 600;
   text-transform: uppercase;
   line-height: 1;
-
-  -webkit-transition: width 400ms ease-out;
-  -ms-transition: width 400ms ease-out;
-  transition: width 400ms ease-out;
 }
 
 .container:hover {
   color: $black;
   border-bottom-color: $black;
-  width: 200px;
 
   -webkit-transition: border-bottom-color 100ms ease-in-out;
   -ms-transition: border-bottom-color 100ms ease-in-out;
@@ -102,17 +97,12 @@ $light-gray: #ececec;
   -ms-transition: color 100ms ease-in-out;
   transition: color 100ms ease-in-out;
 
-  -webkit-transition: width 400ms ease-out;
-  -ms-transition: width 400ms ease-out;
-  transition: width 400ms ease-out;
-
   cursor: pointer;
 }
 
 .at-selected {
   color: $black;
   border-bottom-color: $black;
-  width: 200px;
 }
 
 .at-selected .arrow {
@@ -168,6 +158,6 @@ $light-gray: #ececec;
 }
 
 .options > div:hover {
-  background-color: $light-gray;
+  color: $gray;
 }
 </style>

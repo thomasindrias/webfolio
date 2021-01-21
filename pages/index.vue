@@ -31,9 +31,8 @@
                 class="result"
               />
               <div
-                v-scroll-reveal.reset
                 :class="{'not-hidden animated fadeIn delay-1s': lazyLoad}"
-                class="end column has-text-centered is-centered is-fullwidth"
+                class="end column animated fadeIn has-text-centered is-centered is-fullwidth"
               >
                 <span class="title">No more posts ✍️</span>
               </div>
