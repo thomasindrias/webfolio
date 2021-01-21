@@ -1,0 +1,23 @@
+[build]
+  command = "yarn generate"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "12.16.1"
+  NPM_CONFIG_PRODUCTION = "false"
+  HOST = "0.0.0.0"
+  NODE_ENV = "production"
+
+[context.deploy-preview]
+  DEPLOY_PREVIEW = "true"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "no-referrer-when-downgrade"
+
+[[plugins]]
+package = "@netlify/plugin-sitemap"

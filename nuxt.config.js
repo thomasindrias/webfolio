@@ -7,7 +7,8 @@ const client = require('./plugins/contentful')
 
 // eslint-disable-next-line nuxt/no-cjs-in-config
 module.exports = {
-  mode: 'universal',
+  ssr: true,
+  target: 'static',
 
   /*
   ** Headers of the page
@@ -41,6 +42,16 @@ module.exports = {
     ogDescription: false
   },
 
+  /**
+   * Nuxt "environment" variables
+   * https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
+   */
+  publicRuntimeConfig: {
+    // Variables exposed to frontend and backend
+    space: process.env.CTF_SPACE_ID,
+    accessToken: process.env.CTF_ACCESS_TOKEN
+  },
+
   /*
   ** Customize the progress-bar color
   */
@@ -55,7 +66,10 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/contentful',
+    {
+      src: '~/plugins/contentful',
+      ssr: false
+    },
     {
       src: '~/plugins/vue-lazyload',
       ssr: false
@@ -143,7 +157,8 @@ module.exports = {
     }
   },
   generate: {
-    routes() {
+    fallback: true,
+    routes: () => {
       return client
         .getEntries({
           content_type: 'post'
