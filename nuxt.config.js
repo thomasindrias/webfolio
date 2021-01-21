@@ -1,5 +1,5 @@
-require('dotenv').config()
-
+import dotenv from "dotenv"; 
+dotenv.config();
 // eslint-disable-next-line nuxt/no-cjs-in-config
 const pkg = require('./package')
 // eslint-disable-next-line nuxt/no-cjs-in-config
@@ -37,19 +37,14 @@ module.exports = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
+  env: {
+    CTF_SPACE_ID:  process.env.CTF_SPACE_ID,
+    CTF_ACCESS_TOKEN: process.env.CTF_ACCESS_TOKEN,
+  },
+
   meta: {
     ogTitle: false,
     ogDescription: false
-  },
-
-  /**
-   * Nuxt "environment" variables
-   * https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
-   */
-  publicRuntimeConfig: {
-    // Variables exposed to frontend and backend
-    space: process.env.CTF_SPACE_ID,
-    accessToken: process.env.CTF_ACCESS_TOKEN
   },
 
   /*
@@ -66,10 +61,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    {
-      src: '~/plugins/contentful',
-      ssr: false
-    },
+    '~/plugins/contentful',
     {
       src: '~/plugins/vue-lazyload',
       ssr: false
@@ -159,10 +151,12 @@ module.exports = {
   generate: {
     fallback: true,
     routes: () => {
-      return client
+      return Promise.all([
+      client
         .getEntries({
           content_type: 'post'
         })
+      ])
         .then(entries => {
           return entries.items.map(entry => {
             return {
