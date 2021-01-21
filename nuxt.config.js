@@ -157,14 +157,15 @@ module.exports = {
           content_type: 'post'
         })
       ])
-        .then(entries => {
-          return entries.items.map(entry => {
-            return {
-              route: entry.fields.slug,
-              payload: entry
-            }
-          })
-        })
+        .then(([blogEntries]) => {
+       return [...blogEntries.items.map(entry => {
+         return {
+           route: entry.fields.slug, 
+           payload: entry
+          }
+        }
+        )];
+     });
     }
   }
 }
